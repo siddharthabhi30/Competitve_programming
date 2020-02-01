@@ -49,7 +49,7 @@ ll sieve(ll n)
 
 char s[24];
 #define scan(char_array) scanf("%[^\n]s",&char_array);
-
+setprecision(10) used with cout  for double 
 ll Power(ll base , ll e)
 {
     if(e == 0) return 1;
