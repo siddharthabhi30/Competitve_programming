@@ -1,0 +1,19 @@
+void extgcd(ll a, ll b, ll *x, ll *y) {
+    ll xx, yy;
+    if (b == 0) {
+        *x = 1;
+        *y = 0;
+    } else {
+        ll q = a / b;
+        ll r = a % b;
+        extgcd(b, r, &xx, &yy);
+        *x = yy;
+        *y = xx - q * yy;
+    }
+}
+ 
+ll inv(ll a) {
+    ll x, y;
+    extgcd(a, MOD, &x, &y);
+    return (x + MOD) % MOD;
+}
