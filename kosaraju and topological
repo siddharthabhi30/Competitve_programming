@@ -1,0 +1,41 @@
+stack<int> st;
+void dfs(int n){
+     if(visited[n]) return;
+      visited[n]=1;
+     for(auto j:ad[n]){
+     	if(!visited[j]) dfs(j);
+     }
+     //cout<<"  this  "<<n<<endl;
+     st.push(n);
+ 
+ 
+ 
+}
+void bfs(int n){
+	vector<int> our;
+ 
+    queue<int> q;
+    q.push(n);
+    int a;
+    int cnt=0;
+    while(!q.empty()){
+    	a=q.front();
+    	
+    	visited[a]=1;
+    	our.pb(a);
+    	q.pop();
+    	for(auto j:gra[a]){
+    		 if(!visited[j]) {q.push(j); cnt++;}
+    	}
+ 
+    }
+   // if(cnt>1) is_loop=true;
+ }
+ while(!st.empty()){
+     	int tmp=st.top();
+     	st.pop();
+     	if(!visited[tmp]) bfs(tmp);	
+     }
+   
+ 
+ 
