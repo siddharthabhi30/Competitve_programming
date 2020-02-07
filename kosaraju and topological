@@ -36,6 +36,9 @@ void bfs(int n){
      	st.pop();
      	if(!visited[tmp]) bfs(tmp);	
      }
-   
+     
+     
+     
+  // https://codeforces.com/contest/919/problem/D   
  
  
