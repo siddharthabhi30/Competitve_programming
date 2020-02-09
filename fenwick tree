@@ -1,0 +1,23 @@
+int sum(int k) {
+int s = 0;
+while (k>0) {
+s += tree[k];
+s=(s)%Mod;
+k -= k&-k;
+}
+return s;
+
+}
+
+void add(int k, int x) {
+   while (k < maax) {
+    tree[k] += x;
+    tree[k]=tree[k]%Mod;
+    k += k&-k;
+   }
+}
+
+
+// csacad late edges
+
+
