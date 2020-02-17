@@ -1,9 +1,15 @@
+const int N=1e5+10;
 stack<int> st;
+int n,m;
+vector<int> ad[N];
+vector<int> gra[N];
+bpol is_loop;
+int visited[N];
 void dfs(int n){
      if(visited[n]) return;
       visited[n]=1;
      for(auto j:ad[n]){
-     	if(!visited[j]) dfs(j);
+        if(!visited[j]) dfs(j);
      }
      //cout<<"  this  "<<n<<endl;
      st.push(n);
@@ -12,33 +18,47 @@ void dfs(int n){
  
 }
 void bfs(int n){
-	vector<int> our;
+    vector<int> our;
  
     queue<int> q;
     q.push(n);
     int a;
     int cnt=0;
     while(!q.empty()){
-    	a=q.front();
-    	
-    	visited[a]=1;
-    	our.pb(a);
-    	q.pop();
-    	for(auto j:gra[a]){
-    		 if(!visited[j]) {q.push(j); cnt++;}
-    	}
+        a=q.front();
+        
+        visited[a]=1;
+        our.pb(a);
+        q.pop();
+        for(auto j:gra[a]){
+             if(!visited[j]) {q.push(j); cnt++;}
+        }
  
     }
-   // if(cnt>1) is_loop=true;
+    if(cnt>1) is_loop=true;
  }
+
+ int main(){
+ 
+ is_loop=false;
+ cin>>n>>m;
+ int tmp,tmp1;
+ fo(i,m){
+    cin>>tmp>>tmp1;
+    ad[tmp].pb(tmp1);
+    ad[tmp1].pb(tmp);
+
+
+ }
+ fo(i,n+1) visited[i]=0;
+
+ FOR(i,1,n) {
+    if(!visited[i]) dfs(i);
+ }
+fo(i,n+1) visited[i]=0;
+stack<int> st1=st;
  while(!st.empty()){
-     	int tmp=st.top();
-     	st.pop();
-     	if(!visited[tmp]) bfs(tmp);	
+        int tmp=st.top();
+        st.pop();
+        if(!visited[tmp]) bfs(tmp); 
      }
-     
-     
-     
-  // https://codeforces.com/contest/919/problem/D   
- 
- 
