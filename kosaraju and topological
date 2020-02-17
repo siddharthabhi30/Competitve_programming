@@ -3,7 +3,7 @@ stack<int> st;
 int n,m;
 vector<int> ad[N];
 vector<int> gra[N];
-bpol is_loop;
+bool is_loop;
 int visited[N];
 void dfs(int n){
      if(visited[n]) return;
@@ -11,24 +11,24 @@ void dfs(int n){
      for(auto j:ad[n]){
         if(!visited[j]) dfs(j);
      }
-     //cout<<"  this  "<<n<<endl;
+    //cout<<"  this  "<<n<<endl;
      st.push(n);
  
  
  
 }
 void bfs(int n){
-    vector<int> our;
+    
  
     queue<int> q;
     q.push(n);
     int a;
-    int cnt=0;
+    int cnt=1;
     while(!q.empty()){
         a=q.front();
         
         visited[a]=1;
-        our.pb(a);
+        
         q.pop();
         for(auto j:gra[a]){
              if(!visited[j]) {q.push(j); cnt++;}
@@ -46,7 +46,7 @@ void bfs(int n){
  fo(i,m){
     cin>>tmp>>tmp1;
     ad[tmp].pb(tmp1);
-    ad[tmp1].pb(tmp);
+    gra[tmp1].pb(tmp);
 
 
  }
@@ -62,3 +62,4 @@ stack<int> st1=st;
         st.pop();
         if(!visited[tmp]) bfs(tmp); 
      }
+if(is_loop) {cout<<"IMPOSSIBLE"<<endl; return 0;}
