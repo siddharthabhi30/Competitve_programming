@@ -51,7 +51,7 @@ const ll N=1000005;
     }
 
 
-// lucas theorem for ncr with mod 
+// lucas theorem for ncr with mod  O(r)   abc156 D
 
 
 ll C(ll n, ll r) {
