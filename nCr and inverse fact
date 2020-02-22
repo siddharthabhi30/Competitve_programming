@@ -49,3 +49,23 @@ const ll N=1000005;
         num%=MOD;
         return num;
     }
+
+
+// lucas theorem for ncr with mod 
+
+
+ll C(ll n, ll r) {
+    if(r > n - r) r = n - r; // because C(n, r) == C(n, n - r)
+    ll num=1;
+    ll den=1;
+    for(int i = 0; i < r; i++) {
+        num = (num%mod*(n -i)%mod)%mod;
+        den=(den%mod*(i+1)%mod)%mod;
+        
+        
+    }
+    ll ans= (num%mod*Power(den,mod-2)%mod)%mod;
+
+
+    return ans;
+}
