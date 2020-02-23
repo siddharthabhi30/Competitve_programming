@@ -1,18 +1,17 @@
 const ll N=1000005;
 
+const ll MOD=1000000007;
+ll fact[N], invfact[N];
 
-    const ll MOD=1000000007;
-    ll fact[N], invfact[N];
-
-    ll pow(ll a, ll b, ll m)
+ll pow(ll a, ll b)
     {
-        ll ans=1;
+      ll ans=1;
         while(b)
         {
             if(b&1)
-                ans=(ans*a)%m;
+                ans=(ans*a)%MOD;
             b/=2;
-            a=(a*a)%m;
+            a=(a*a)%MOD;
         }
         return ans;
     }
