@@ -1,0 +1,14 @@
+// for prprity queue and set
+
+struct cmp
+{
+    bool operator()(int a, int b)
+    {
+        return a<b;
+    }
+};
+
+
+//for vectors
+
+auto compare=[](const int a, const int b) {return a > b;};
