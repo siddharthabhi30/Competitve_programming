@@ -1,0 +1,92 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll int64_t
+#include <cstdlib> 
+#include <math.h>
+#include<cstdio>
+#include<cstring>
+#define dbg(x) cout << #x << " = " << x << endl
+#define dbg2(x,y) cout << #x << " = " << x << ", " << #y << " = " << y << endl
+#define dbg3(x,y,z) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << endl
+#define dbg4(x,y,z,q) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << ", " << #q << " = " << q << endl
+
+#define FOR(I, A, B) for (int I = (A); I <= (B); I++)
+typedef vector< int > vi;
+typedef vector< vi > vvi;
+typedef pair< int,int > ii;
+#define gap cout<<endl;
+#define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define fo(i,n) for(int i=0;i<n;i++)
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c)).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+const int N=1000005;
+ll powers[N];
+ll primes[N];
+const int MOD=1000000007;
+
+ll Power(ll base , ll e)
+{
+    if(e == 0) return 1;
+    ll ans = base; e--;
+    while(e)
+    {
+        if(e & 1) ans = (ans * base) %MOD;
+        base = (base * base) %MOD;
+        e >>= 1;
+    }
+    return (ans+MOD)%MOD;
+}
+
+void sieve()
+{
+  
+  
+  for(ll i=2;i<=N;i++)
+  {
+    if(primes[i]==-1)
+    {
+        for(ll j=i;j<=N;j+=i) primes[j]=i;
+        
+     }
+   }
+
+}
+
+int main(){
+    ll n;
+    cin>>n;
+    fo(i,N){
+        primes[i]=-1;
+        powers[i]=0;
+    }
+    ll a[10005];
+    fo(i,n) cin>>a[i];
+    ll tmp=1;
+    sieve();
+    fo(i,n){
+        ll tmp=a[i];
+        while(tmp>1){
+            ll y=primes[tmp];
+            ll count=0;
+            while(tmp%y==0){
+                tmp=tmp/y;
+                count++;
+            }
+            powers[y]=max(powers[y],count); 
+        }
+    }
+    ll ans=1;
+    FOR(i,2,N){
+        if(primes[i]==i){
+            ans=(ans%MOD*Power(i,powers[i])%MOD)%MOD;
+            ans=(ans+MOD)%MOD;
+        }
+
+    }
+    // ans is total lcm
+    
+    }
