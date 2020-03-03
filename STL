@@ -1,0 +1,17 @@
+// queue
+.push
+.pop
+.front
+.back
+.emplace
+.size
+
+
+// deque
+  .push back
+  .push front
+  .front
+  .back
+  .emplace_back
+  
+  
