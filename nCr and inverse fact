@@ -16,6 +16,13 @@ ll Power(ll base , ll e)
 	return ans %MOD;
 }
 
+
+ll gcd(ll a,ll b)
+{
+if(a==0) return b;
+else return gcd(a%b,b);
+}
+
     ll modinv(ll k)
     {
         return Power(k, MOD-2);
