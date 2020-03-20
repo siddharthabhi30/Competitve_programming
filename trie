@@ -1,1 +1,25 @@
-// pointer node can directly to reference without using & 
+// pointer node can directly to reference without using & with new node
+
+struct TrieNode 
+{ 
+    struct TrieNode *children[ALPHABET_SIZE]; 
+  
+    // isEndOfWord is true if the node represents 
+    // end of a word 
+    bool isEndOfWord; 
+}; 
+  
+// Returns new trie node (initialized to NULLs) 
+struct TrieNode *getNode(void) 
+{ 
+    struct TrieNode *pNode =  new TrieNode; 
+  
+    pNode->isEndOfWord = false; 
+  
+    for (int i = 0; i < ALPHABET_SIZE; i++) 
+        pNode->children[i] = NULL; 
+  
+    return pNode; 
+} 
+
+
