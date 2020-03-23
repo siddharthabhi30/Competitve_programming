@@ -9,11 +9,11 @@ ll Power(ll base , ll e)
     ll ans = base; e--;
     while(e)
 	{
-        if(e & 1) ans = (ans * base) %MOD;
-        base = (base * base) %MOD;
+        if(e & 1) ans = (((ans%MOD) * (base%MOD)) %MOD+MOD)%MOD;
+        base = (((base%MOD) * (base%MOD)) %MOD+MOD)%MOD;
         e >>= 1;
 	}
-	return ans %MOD;
+	return (ans+MOD) %MOD;
 }
 
 
