@@ -17,10 +17,12 @@ ll Power(ll base , ll e)
 }
 
 
-ll gcd(ll a,ll b)
-{
-if(a==0) return b;
-else return gcd(b%a,b);
+ll gcd(ll a, ll b) 
+{ 
+    if (b == 0) 
+        return a; 
+    return gcd(b, a % b);  
+      
 }
 
     ll modinv(ll k)
