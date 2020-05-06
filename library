@@ -19,4 +19,4 @@ using namespace std;
 #define dbg3(x,y,z) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << endl
 #define dbg4(x,y,z,q) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << ", " << #q << " = " << q << endl
 #define scan(char_array) scanf("%[^\n]s",&char_array)
-#define inin freopen("input.txt", "r", stdin)
+#define inin freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
