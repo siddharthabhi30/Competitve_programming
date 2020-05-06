@@ -1,0 +1,329 @@
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll int64_t
+#include <cstdlib> 
+#include <math.h>
+#include<cstdio>
+#include<cstring>
+#define FOR(I, A, B) for (ll I = (A); I <= (B); I++)
+#define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define fo(i,n) for(ll i=0;i<n;i++)
+#define sz(a) ll((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(auto i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define dbg(x) cout << #x << " = " << x << endl
+#define dbg2(x,y) cout << #x << " = " << x << ", " << #y << " = " << y << endl
+#define dbg3(x,y,z) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << endl
+#define dbg4(x,y,z,q) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << ", " << #q << " = " << q << endl
+#define scan(char_array) scanf("%[^\n]s",&char_array)
+#define inin freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
+const int N=2000005;
+
+ll Power(ll base , ll e)
+{
+    if(e == 0) return 1;
+    ll ans = base; e--;
+    while(e)
+  {
+        if(e & 1) ans = (((ans%MOD) * (base%MOD)) %MOD+MOD)%MOD;
+        base = (((base%MOD) * (base%MOD)) %MOD+MOD)%MOD;
+        e >>= 1;
+  }
+  return (ans+MOD) %MOD;
+}
+ll primes[N];
+void sieve()
+{
+  
+  
+  for(ll i=2;i<=N;i++)
+  {
+    if(primes[i]==-1)
+    {
+        for(ll j=i;j<=N;j+=i) primes[j]=i;
+        
+     }
+   }
+
+}
+
+ll gcd(ll a, ll b) 
+{ 
+    if (b == 0) 
+        return a; 
+    return gcd(b, a % b);  
+      
+}
+
+ ll modinv(ll k)
+    {
+        return Power(k, MOD-2);
+    }
+
+
+factorial and inverse 
+ll fact[N];
+ll invfact[N];
+
+void precompute()
+    {
+        fact[0]=fact[1]=1;
+        for(ll i=2;i<N;i++)
+        {
+            fact[i]=fact[i-1]*i;
+            fact[i]%=MOD;
+        }
+        invfact[N-1]=modinv(fact[N-1]);
+        for(ll i=N-2;i>=0;i--)
+        {
+            invfact[i]=invfact[i+1]*(i+1);
+            invfact[i]%=MOD;
+        }
+    }
+
+    ll nCr(ll x, ll y)
+    {
+        if(y>x)
+            return 0;
+        ll num=fact[x];
+        num*=invfact[y];
+        num%=MOD;
+        num*=invfact[x-y];
+        num%=MOD;
+        return num;
+    }
+
+
+stl 
+// queue
+.push
+.pop
+.front
+.back
+.emplace
+.size
+
+
+// deque
+  .push back
+  .push front
+  .front
+  .back
+  .emplace_back
+
+
+//union find
+ll height[N];
+ll father[N];
+void init() {
+    for (int i = 0;k i < N; ++i) {
+        father[i] = i;
+        height[i] = 0;
+    }
+}
+
+int find(int node) {
+    if (father[node] != node) {
+        father[node] = find(father[node]);
+    }
+    return father[node];
+}
+
+void unite(int A, int B) {
+    int rootA = find(A);
+    int rootB = find(B);
+    if (height[rootA] > height[rootB]) {
+        father[rootB] = rootA;
+        height[rootA] = max(height[rootA], height[rootB] + 1);
+    } else {
+        father[rootA] = rootB;
+        height[rootB] = max(height[rootB], height[rootA] + 1);
+    }
+  
+// 
+
+//_builtin_popcountll()
+
+z algo
+vector<int> z(string s) {
+       int n = s.size();
+       vector<int> z(n);
+       int x = 0, y = 0;
+       for (int i = 1; i < n; i++) {
+     z[i] = max(0,min(z[i-x],y-i+1));
+       while (i+z[i] < n && s[z[i]] == s[i+z[i]]) {
+       x = i; y = i+z[i]; z[i]++;
+       }
+      }        
+return z;
+}
+
+
+
+//compare function
+
+
+struct cmp
+{
+    bool operator()(int a, int b)
+    {
+        return a<b;
+    }
+};
+
+
+//for vectors
+auto compare=[](const int a, const int b) {return a > b;};
+
+
+fenwick tree
+
+ll tree[N];
+ll a[N];
+ll n;
+ll sum(ll k) {
+ll s = 0;
+while (k >= 1) {
+s += tree[k];
+k -= k&-k;
+}
+return s;
+}
+void add(ll k, ll x) {
+while (k <= n) {
+tree[k] += x;
+k += k&-k;
+}
+}
+
+
+//inverse and gcd
+
+void extgcd(ll a, ll b, ll *x, ll *y) {
+    ll xx, yy;
+    if (b == 0) {
+        *x = 1;
+        *y = 0;
+    } else {
+        ll q = a / b;
+        ll r = a % b;
+        extgcd(b, r, &xx, &yy);
+        *x = yy;
+        *y = xx - q * yy;
+    }
+}
+ 
+ll inv(ll a) {
+    ll x, y;
+    extgcd(a, MOD, &x, &y);
+    return (x + MOD) % MOD;
+}
+
+
+
+//kosaraju and topological
+
+
+const int N=1e5+10;
+stack<int> st;
+int n,m;
+vector<int> ad[N];
+vector<int> gra[N];
+bool is_loop;
+int visited[N];
+void dfs(int n){
+     if(visited[n]) return;
+      visited[n]=1;
+     for(auto j:ad[n]){
+        if(!visited[j]) dfs(j);
+     }
+    //cout<<"  this  "<<n<<endl;
+     st.push(n);
+ 
+ 
+ 
+}
+void bfs(int n){
+    
+ 
+    queue<int> q;
+    q.push(n);
+    int a;
+    int cnt=1;
+    while(!q.empty()){
+        a=q.front();
+        
+        visited[a]=1;
+        
+        q.pop();
+        for(auto j:gra[a]){
+             if(!visited[j]) {q.push(j); cnt++;}
+        }
+ 
+    }
+    if(cnt>1) is_loop=true;
+ }
+
+ int main(){
+ 
+ is_loop=false;
+ cin>>n>>m;
+ int tmp,tmp1;
+ fo(i,m){
+    cin>>tmp>>tmp1;
+    ad[tmp].pb(tmp1);
+    gra[tmp1].pb(tmp);
+
+
+ }
+ fo(i,n+1) visited[i]=0;
+
+ FOR(i,1,n) {
+    if(!visited[i]) dfs(i);
+ }
+fo(i,n+1) visited[i]=0;
+stack<int> st1=st;
+ while(!st.empty()){
+        int tmp=st.top();
+        st.pop();
+        if(!visited[tmp]) bfs(tmp); 
+     }
+if(is_loop) {cout<<"IMPOSSIBLE"<<endl; return 0;}
+
+
+
+
+
+trie 
+// pointer node can directly to reference to a node without using & ,with new node
+
+struct trie
+{ 
+    trie* children[26];
+    bool child[26];
+  
+    // isEndOfWord is true if the node represents 
+    // end of a word 
+    bool is;
+}; 
+  
+// Returns new trie node (initialized to NULLs) 
+trie* getNode(void) 
+{ 
+    trie *pNode =  new trie; 
+  
+    
+  
+    for (int i = 0; i < 26; i++) {
+        pNode->child[i] = false;
+        pNode->children[i]=NULL; 
+    }
+    pNode->is=false;
+  
+    return pNode; 
+} 
