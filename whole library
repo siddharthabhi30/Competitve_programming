@@ -10,9 +10,6 @@ using namespace std;
 #define sz(a) ll((a).size())
 #define pb push_back
 #define all(c) (c).begin(),(c).end()
-#define tr(c,i) for(auto i = (c).begin(); i != (c).end(); i++)
-#define present(c,x) ((c).find(x) != (c).end())
-#define cpresent(c,x) (find(all(c),x) != (c).end())
 #define dbg(x) cout << #x << " = " << x << endl
 #define dbg2(x,y) cout << #x << " = " << x << ", " << #y << " = " << y << endl
 #define dbg3(x,y,z) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << endl
@@ -20,7 +17,7 @@ using namespace std;
 #define scan(char_array) scanf("%[^\n]s",&char_array)
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
-const int N=2000005;
+const ll N=2000005;
 
 ll Power(ll base , ll e)
 {
@@ -121,26 +118,62 @@ stl
   .emplace_back
 
 
+another compare for priority_queue
+struct CustomCompare
+{
+    bool operator()(const int& lhs, const int& rhs)
+    {
+        return lhs < rhs;
+    }
+};
+
+
+
+auto compare = [](int lhs, int rhs)
+                {
+                    return lhs < rhs;
+                };
+
+    std::priority_queue<int, std::vector<int>, decltype(compare)> q(compare);
+
+    
+
+
+compare for set
+
+struct cmp {
+    bool operator() (const pair<int, int> &a, const pair<int, int> &b) const {
+        int lena = a.second - a.first + 1;
+        int lenb = b.second - b.first + 1;
+        if (lena == lenb) return a.first < b.first;
+        return lena > lenb;
+    }
+};
+
+set<pair<int, int>, cmp> segs;
+
+
+
 //union find
 ll height[N];
 ll father[N];
 void init() {
-    for (int i = 0;k i < N; ++i) {
+    for (ll i = 0;k i < N; ++i) {
         father[i] = i;
         height[i] = 0;
     }
 }
 
-int find(int node) {
+ll find(ll node) {
     if (father[node] != node) {
         father[node] = find(father[node]);
     }
     return father[node];
 }
 
-void unite(int A, int B) {
-    int rootA = find(A);
-    int rootB = find(B);
+void unite(ll A, ll B) {
+    ll rootA = find(A);
+    ll rootB = find(B);
     if (height[rootA] > height[rootB]) {
         father[rootB] = rootA;
         height[rootA] = max(height[rootA], height[rootB] + 1);
@@ -154,11 +187,11 @@ void unite(int A, int B) {
 //_builtin_popcountll()
 
 z algo
-vector<int> z(string s) {
-       int n = s.size();
-       vector<int> z(n);
-       int x = 0, y = 0;
-       for (int i = 1; i < n; i++) {
+vector<ll> z(string s) {
+       ll n = s.size();
+       vector<ll> z(n);
+       ll x = 0, y = 0;
+       for (ll i = 1; i < n; i++) {
      z[i] = max(0,min(z[i-x],y-i+1));
        while (i+z[i] < n && s[z[i]] == s[i+z[i]]) {
        x = i; y = i+z[i]; z[i]++;
@@ -174,7 +207,7 @@ return z;
 
 struct cmp
 {
-    bool operator()(int a, int b)
+    bool operator()(ll a, ll b)
     {
         return a<b;
     }
@@ -182,7 +215,7 @@ struct cmp
 
 
 //for vectors
-auto compare=[](const int a, const int b) {return a > b;};
+auto compare=[](const ll a, const ll b) {return a > b;};
 
 
 fenwick tree
@@ -233,17 +266,17 @@ ll inv(ll a) {
 //kosaraju and topological
 
 
-const int N=1e5+10;
-stack<int> st;
-int n,m;
-vector<int> ad[N];
-vector<int> gra[N];
+const ll N=1e5+10;
+stack<ll> st;
+ll n,m;
+vector<ll> ad[N];
+vector<ll> gra[N];
 bool is_loop;
-int visited[N];
-void dfs(int n){
+ll visited[N];
+void dfs(ll n){
      if(visited[n]) return;
       visited[n]=1;
-     for(auto j:ad[n]){
+     for(auto j:adj[n]){
         if(!visited[j]) dfs(j);
      }
     //cout<<"  this  "<<n<<endl;
@@ -252,13 +285,13 @@ void dfs(int n){
  
  
 }
-void bfs(int n){
+void bfs(ll n){
     
  
-    queue<int> q;
+    queue<ll> q;
     q.push(n);
-    int a;
-    int cnt=1;
+    ll a;
+    ll cnt=1;
     while(!q.empty()){
         a=q.front();
         
@@ -273,14 +306,14 @@ void bfs(int n){
     if(cnt>1) is_loop=true;
  }
 
- int main(){
+ ll main(){
  
  is_loop=false;
  cin>>n>>m;
- int tmp,tmp1;
+ ll tmp,tmp1;
  fo(i,m){
     cin>>tmp>>tmp1;
-    ad[tmp].pb(tmp1);
+    adj[tmp].pb(tmp1);
     gra[tmp1].pb(tmp);
 
 
@@ -291,9 +324,9 @@ void bfs(int n){
     if(!visited[i]) dfs(i);
  }
 fo(i,n+1) visited[i]=0;
-stack<int> st1=st;
+stack<ll> st1=st;
  while(!st.empty()){
-        int tmp=st.top();
+        ll tmp=st.top();
         st.pop();
         if(!visited[tmp]) bfs(tmp); 
      }
@@ -304,7 +337,7 @@ if(is_loop) {cout<<"IMPOSSIBLE"<<endl; return 0;}
 
 
 trie 
-// pointer node can directly to reference to a node without using & ,with new node
+// poller node can directly to reference to a node without using & ,with new node
 
 struct trie
 { 
@@ -323,7 +356,7 @@ trie* getNode(void)
   
     
   
-    for (int i = 0; i < 26; i++) {
+    for (ll i = 0; i < 26; i++) {
         pNode->child[i] = false;
         pNode->children[i]=NULL; 
     }
@@ -336,9 +369,9 @@ trie* getNode(void)
 
 segment tree max
 
-std::vector<int> seg(N*4);
+std::vector<ll> seg(N*4);
  
-void sege(int x,int y,int pos)
+void sege(ll x,ll y,ll pos)
 {
 if(x==y){
     
@@ -346,21 +379,21 @@ if(x==y){
     return;
         
 }
-int mid=(x+y)/2;
+ll mid=(x+y)/2;
 sege(x,mid,2*pos +1);
 sege(mid+1,y,2*pos+2);
 seg[pos]=max(seg[2*pos+1],seg[2*pos+2]);
 
 }
  
-int qr(int x,int y,int lo,int hi,int pos)
+ll qr(ll x,ll y,ll lo,ll hi,ll pos)
 {
  
     if(lo>=x&&hi<=y) return seg[pos];
  
     if(hi<x||lo>y) return 0;
  
-    int mid=(lo+hi)/2;
+    ll mid=(lo+hi)/2;
  
     return max(qr(x,y,lo,mid,2*pos+1),qr(x,y,mid+1,hi,2*pos+2));
  
