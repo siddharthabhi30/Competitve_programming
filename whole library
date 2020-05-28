@@ -5,6 +5,7 @@ using namespace std;
 #include <math.h>
 #include<cstdio>
 #include<cstring>
+#define vi v(n) vector<ll> v(n);
 #define FOR(I, A, B) for (ll I = (A); I <= (B); I++)
 #define fo(i,n) for(ll i=0;i<n;i++)
 #define sz(a) ll((a).size())
@@ -118,6 +119,20 @@ stl
   .emplace_back
 
 
+
+struct cmp
+{
+    bool operator()(ll a, ll b)
+    {
+        return a<b;
+    }
+};
+
+
+//for vectors
+auto compare=[](const ll a, const ll b) {return a > b;};
+
+
 another compare for priority_queue
 struct CustomCompare
 {
@@ -184,7 +199,7 @@ void unite(ll A, ll B) {
   
 // 
 
-//_builtin_popcountll()
+//__builtin_popcountll()
 
 z algo
 vector<ll> z(string s) {
@@ -205,17 +220,6 @@ return z;
 //compare function
 
 
-struct cmp
-{
-    bool operator()(ll a, ll b)
-    {
-        return a<b;
-    }
-};
-
-
-//for vectors
-auto compare=[](const ll a, const ll b) {return a > b;};
 
 
 fenwick tree
