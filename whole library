@@ -5,6 +5,7 @@ using namespace std;
 #include <math.h>
 #include<cstdio>
 #include<cstring>
+#include <math.h>
 #define vi v(n) vector<ll> v(n);
 #define FOR(I, A, B) for (ll I = (A); I <= (B); I++)
 #define fo(i,n) for(ll i=0;i<n;i++)
@@ -19,7 +20,7 @@ using namespace std;
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
 const ll N=2000005;
-
+g++ -o h  a.cpp && ./h < in
 ll Power(ll base , ll e)
 {
     if(e == 0) return 1;
@@ -66,6 +67,20 @@ ll lcm(ll a,ll b){
 factorial and inverse 
 ll fact[N];
 ll invfact[N];
+
+
+ll Power(ll base , ll e)
+{
+    if(e == 0) return 1;
+    ll ans = base; e--;
+    while(e)
+  {
+        if(e & 1) ans = (((ans%MOD) * (base%MOD)) %MOD+MOD)%MOD;
+        base = (((base%MOD) * (base%MOD)) %MOD+MOD)%MOD;
+        e >>= 1;
+  }
+  return (ans+MOD) %MOD;
+}
 
 ll modinv(ll k)
     {
@@ -223,8 +238,8 @@ return z;
 
 
 fenwick tree
-
-ll tree[N];
+const ll N=1000005
+;ll tree[N];
 ll a[N];
 ll n;
 ll sum(ll k) {
@@ -236,7 +251,7 @@ k -= k&-k;
 return s;
 }
 void add(ll k, ll x) {
-while (k <= n) {
+while (k <= N) {
 tree[k] += x;
 k += k&-k;
 }
@@ -352,11 +367,11 @@ struct trie
     // end of a word 
     bool is;
 }; 
-  
+  trie
 // Returns new trie node (initialized to NULLs) 
 trie* getNode(void) 
 { 
-    trie *pNode =  new trie; 
+    trie* pNode =  new trie; 
   
     
   
