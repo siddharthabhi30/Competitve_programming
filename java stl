@@ -154,6 +154,8 @@ myName.setCharAt(4, 'x');
 
 System.out.println(myName);
 
+or break it in arr of characters
+
  --------------------------------
  String my=s.substring(2,3);
  init index and end index  
