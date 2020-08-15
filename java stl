@@ -1,0 +1,177 @@
+ PriorityQueue<Integer> pQueue = new PriorityQueue<Integer>();        
+ Iterator itr = pQueue.iterator(); 
+        while (itr.hasNext()) 
+            System.out.println(itr.next()); 
+.add
+
+PriorityQueue<Integer> pq = new PriorityQueue<Integer> (
+  new Comparator<Integer> () {
+    public int compare(Integer a, Integer b) {
+       return b - a;
+    }
+  }
+);
+
+
+PriorityQueue<Integer> pq = new PriorityQueue<Integer> (
+  new Comparator<Integer> () {
+    public int compare(Integer a, Integer b) {
+       return b - a;
+    }
+  }
+);
+
+add
+peek  -see the top 
+poll  - get the top
+-------------------------------------
+
+Comparator for a class
+
+class ourclass implements Comparable<ourclass>
+
+ public int compareTo(cc o) {
+        return (o.getUu()-this.getUu());
+    }
+Collections.sort(tr);
+
+
+
+or
+custom comparator like lambdA
+
+class PlayerRankingComparator implements Comparator<cc> {
+
+
+
+    @Override
+    public int compare(cc o1, cc o2) {
+        return (o2.getUu()-o1.getUu());
+    }
+}
+Collections.sort(trArraylist , new PlayerRankingComparator());
+
+-------------------------------
+
+
+Set
+
+
+Set<String> hash_Set 
+            = new HashSet<String>(); 
+
+
+hs.contains(check)
+
+ hs.remove("B");
+
+ for (String value : hs) 
+            System.out.print(value 
+
+Iterator<String> i = h.iterator();  // <string > can be removed
+        while (i.hasNext()) 
+            System.out.println(i.next()); 
+
+clear()
+
+isEmpty()
+
+size()
+---------------------------------------------------------
+
+
+map
+
+hm1.remove(new Integer(4)); 
+
+Map<String, Integer> hm 
+            = new HashMap<String, Integer>(); 
+  
+        hm.put("a", new Integer(100)); 
+
+for (Map.Entry<String, Integer> e : hm.entrySet())
+            System.out.println(e.getKey() + " "
+                    + e.getValue());
+
+
+containsKey(Object)
+get(Object)
+
+size()
+
+
+------------------------------------------------------
+
+arraylist  
+
+   
+     ArrayList<ArrayList<Integer> > x
+                = new ArrayList<ArrayList<Integer> >();
+        x.add(new ArrayList<Integer>());
+        x.get(0).add(33);
+        int[][] twoD_arr = new int[10][20];
+          ArrayList<int[]> aa= new ArrayList<int[]>();
+       aa.add(new int[324]);
+        System.out.println(aa.get(0).length);
+    
+
+---------------------------------------------
+
+
+Stack
+
+ Stack<Integer> st;
+        st = new Stack<Integer>();
+ Integer y = (Integer) stack.pop(); 
+push ,
+pop  peak empty
+size
+
+
+-----------------------------------
+
+Data types
+
+ parseInt(String) 
+------------------------------------------------------
+
+character 
+
+  Character a=(sc.next().charAt(0));
+
+----------------------------------------------------------
+
+single line input  --better option
+
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String s= br.readLine();
+     String[] s1 = s.split(" ");
+ Character a=s1[i].charAt(0);
+
+ --------------------------------------------
+
+ dynamic string 
+ StringBuilder myName = new StringBuilder("domanokz");
+myName.setCharAt(4, 'x');
+
+System.out.println(myName);
+
+or 
+better way 
+ array of charater
+ --------------------------------
+ String my=s.substring(2,3);
+ init index and end index  
+ end index not included
+ second argument is not length
+
+
+ -------------------------------
+
+  static int[] rtr=new int[43];
+   above class definition for global variables
+
+   ------------------------------------
+   Collections.binarysearch is giving errors error
+   
