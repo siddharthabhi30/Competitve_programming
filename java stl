@@ -33,7 +33,10 @@ class ourclass implements Comparable<ourclass>
  public int compareTo(cc o) {
         return (o.getUu()-this.getUu());
     }
+    
+     ArrayList<Integer> tr=new ArrayList<Integer>();
 Collections.sort(tr);
+
 
 
 
