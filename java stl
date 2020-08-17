@@ -86,7 +86,8 @@ size()
 map
 
 hm1.remove(new Integer(4)); 
-
+ Map<Integer, Integer> hm
+                = new TreeMap<Integer, Integer>();
 Map<String, Integer> hm 
             = new HashMap<String, Integer>(); 
   
