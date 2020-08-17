@@ -174,3 +174,26 @@ or break it in arr of characters
    ------------------------------------
    Collections.binarysearch is giving errors error
    
+   
+   -------------------------------------------
+   
+    static int lower_bound(int[] a,int val){
+            int lo=0;
+            int hi=a.length-1;
+            int mid;
+            int index=a.length;
+            while(lo<=hi){
+                mid=lo +(hi-lo)/2;
+                if(a[mid]<val){
+                    lo=mid+1;
+                }
+                else{
+                    hi=mid-1;
+                    index=mid;
+                }
+
+            }
+            return index;
+
+        }
+   
