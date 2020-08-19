@@ -159,6 +159,7 @@ myName.setCharAt(4, 'x');
 System.out.println(myName);
 
 or break it in arr of characters
+char = strings[2]  ---- never 
 
  --------------------------------
  String my=s.substring(2,3);
@@ -224,4 +225,6 @@ or break it in arr of characters
    ----------------------------------------------------
      long aa= 17100000000L;
      LONG LONG
+     
+     ------------------------------
      
