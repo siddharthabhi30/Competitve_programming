@@ -120,6 +120,9 @@ arraylist   2d
           ArrayList<int[]> aa= new ArrayList<int[]>();
        aa.add(new int[324]);
         System.out.println(aa.get(0).length);
+
+          int[] a={324,23,21,54,2};
+        Arrays.sort(a);
     
 
 ---------------------------------------------
@@ -152,6 +155,9 @@ single line input  --better option
     String s= br.readLine();
      String[] s1 = s.split(" ");
  Character a=s1[i].charAt(0);
+
+ er.equals(er2)  for equality of string
+ can be used both for static and real object string 
 
  --------------------------------------------
 
@@ -246,3 +252,7 @@ String S="abcdef";
 
    if(a>0) System.out.println("frfgre");
    --if doesnt work on normal positive integer
+
+   ------------------------------
+
+   boolean cant be converted to int
