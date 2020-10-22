@@ -57,6 +57,11 @@ Collections.sort(trArraylist , new PlayerRankingComparator());
 
 
 (o1.two-o2.two) ascending
+
+or
+
+
+  Collections.sort(people, (p1,p2)->p1.getLastName().compareTo(p2.getLastName()));
 -------------------------------
 
 
