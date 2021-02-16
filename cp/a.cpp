@@ -18,34 +18,11 @@ using namespace std;
 #define dbg4(x,y,z,q) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << ", " << #q << " = " << q << endl
 #define scan(char_array) scanf("%[^\n]s",&char_array)
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
- set<ll> special;
+
+set<ll> special;
 vector<ll> adj[100005];
-ll ans=100000000000000;
-ll done[100005];
-struct val{
-    ll node;
-    ll dist;
-    ll times;
-};
- ll k;
 
-void dfs(ll node, ll dist, ll times){
-    if(special.count(node)){
-        times++;
-    }
-    if(times==k){
-        ans=min(ans,dist);
-    }
-
-    for(auto nn:adj[node]){
-        if(!done[nn]){
-            dfs(nn,dist+1,times);
-        }
-    }
-
-    done[node]=0;
-
-}
+ll dp[1000006][18];
 
 int main(){
  IOS
@@ -55,6 +32,8 @@ int main(){
  ll a,b;
  fo(i,m){
      cin>>a>>b;
+     a--;
+     b--;
      s.insert(a);
      s.insert(b);
      adj[a].push_back(b);
@@ -74,12 +53,21 @@ int main(){
      }
 
  }
- fo(i,n+1){
-        done[i]=0;
-}
-fo(i,k){
-    dfs(c[i],1,0);
-}
+ ll dist[18][18];
+
+ fo(i,k){
+     fo(j,k){
+         fo(k,k){
+            
+         }
+     }
+ }
+
+ fo(i,1<<k){
+
+ }
+
+
 cout<<ans<<endl;
 return;
 
