@@ -29,6 +29,7 @@ int main(){
  ll n,m;
  cin>>n>>m;
  set<int> s;
+ ll dist[18][18];
  ll a,b;
  fo(i,m){
      cin>>a>>b;
@@ -38,6 +39,8 @@ int main(){
      s.insert(b);
      adj[a].push_back(b);
      adj[b].push_back(a);
+     dist[a][b]=1;
+     dist[b][a]=1;
      
  }
 
@@ -53,12 +56,13 @@ int main(){
      }
 
  }
- ll dist[18][18];
+ 
+
 
  fo(i,k){
      fo(j,k){
-         fo(k,k){
-            
+         fo(f,k){
+            a[j][f]=min(a[j][f],dist[j][i]+dist[i][f]);
          }
      }
  }
