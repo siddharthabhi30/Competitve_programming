@@ -19,63 +19,16 @@ using namespace std;
 #define scan(char_array) scanf("%[^\n]s",&char_array)
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
-set<ll> special;
-vector<ll> adj[100005];
 
-ll dp[1000006][18];
 
 int main(){
- IOS
- ll n,m;
- cin>>n>>m;
- set<int> s;
- ll dist[18][18];
- ll a,b;
- fo(i,m){
-     cin>>a>>b;
-     a--;
-     b--;
-     s.insert(a);
-     s.insert(b);
-     adj[a].push_back(b);
-     adj[b].push_back(a);
-     dist[a][b]=1;
-     dist[b][a]=1;
-     
- }
+    ll x;
+    cin>>x;
+    if(x%100==0){
+        cout<<100<<endl;
 
- cin>>k;
- ll c[k];
-
- fo(i,k){
-     cin>>c[i];
-     special.insert(c[i]);
-     if(!s.count(c[i])){
-            cout<<-1<<endl;
-            return;
-     }
-
- }
- 
-
-
- fo(i,k){
-     fo(j,k){
-         fo(f,k){
-            a[j][f]=min(a[j][f],dist[j][i]+dist[i][f]);
-         }
-     }
- }
-
- fo(i,1<<k){
-
- }
-
-
-cout<<ans<<endl;
-return;
-
- 
-
-    
+    }
+    else{
+        cout<<100-x%100<<endl;
+    }
 }

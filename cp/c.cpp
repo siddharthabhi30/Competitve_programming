@@ -18,6 +18,26 @@ using namespace std;
 #define dbg4(x,y,z,q) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << ", " << #q << " = " << q << endl
 #define scan(char_array) scanf("%[^\n]s",&char_array)
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+
+
+
 int main(){
-    cout<<"sss"<<endl;
+    int n,k;
+    cin>>n>>k;
+    int tmp;
+    tmp=n;
+    fo(i,k){
+        string our=to_string(tmp);
+        sort(all(our));
+        string small=our;
+        reverse(all(our));
+        string big=our;
+        //dbg2(big,small);
+        tmp=stoi(big)-stoi(small);
+
+        
+
+    }
+
+    cout<<tmp<<endl;
 }

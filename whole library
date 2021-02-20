@@ -417,3 +417,11 @@ ll qr(ll x,ll y,ll lo,ll hi,ll pos)
     return max(qr(x,y,lo,mid,2*pos+1),qr(x,y,mid+1,hi,2*pos+2));
  
 }
+
+
+//int to string 
+ string our=to_string(tmp);
+
+
+//string to int
+        tmp=stoi(big)-stoi(small);

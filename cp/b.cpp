@@ -19,62 +19,36 @@ using namespace std;
 #define scan(char_array) scanf("%[^\n]s",&char_array)
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
-int lowest(int base, int pow){
-    ll init=base;
-    ll cnt=1;
-    while(true){
-        if(base>=pow){
-            return cnt;
-        }
-        init=base*init;
-        cnt++;
-    }
-}
 
 
-class  PlanningTrips{
-
-public :  int find(int a, vector <int> num){
-    sort(all(num));
-    map<int,int> mp;
-    for(auto ii:num){
-        mp[ii]++;
-    }
-  
+int main(){
+    string s;
+    cin>>s;
     bool flag=true;
-    while(flag){
-        flag=false;
-        map<int,int > final;
-        for(auto ii:mp){
-        if(ii.second>a){
-            flag=true;
-            final[ii.first+lowest(a,ii.second)]+=1;
-            final[ii.first]--;
-            
+    fo(i,sz(s)){
+        char ss=s[i];
+        if(i%2==0){
+            if(ss>='a'&&ss<='z'){
+
+            }
+            else{
+                flag=false;
+            }
         }
         else{
-            final[ii.first]=ii.second;
+             if(ss>='A'&&ss<='Z'){
+
+            }
+            else{
+                flag=false;
+            }
+
         }
-       
     }
-     final=mp;
-
+    if(flag){
+        cout<<"Yes"<<endl;
     }
-    vector<int> values;
-    for(auto ii:mp){
-        values.pb(ii.first);
+    else{
+        cout<<"No"<<endl;
     }
-    sort(all(values));
-    reverse(all(values));
-    if(sz(values)==1){
-        return values[0];
-    }
-    return values[0]+1;
-    
-
-
-    
 }
-
-
-};

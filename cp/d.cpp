@@ -18,6 +18,10 @@ using namespace std;
 #define dbg4(x,y,z,q) cout << #x << " = " << x << ", " << #y << " = " << y << ", " << #z << " = " << z << ", " << #q << " = " << q << endl
 #define scan(char_array) scanf("%[^\n]s",&char_array)
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+
+
+
 int main(){
-    cout<<"sddsdsfss"<<endl;
+    cout<<"ff"<<endl;
+    return 0;
 }
