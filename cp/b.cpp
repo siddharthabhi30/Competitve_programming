@@ -20,35 +20,21 @@ using namespace std;
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
 
+struct aa{
 
+ string name;
+ aa* my=NULL;
+
+};
 int main(){
-    string s;
-    cin>>s;
-    bool flag=true;
-    fo(i,sz(s)){
-        char ss=s[i];
-        if(i%2==0){
-            if(ss>='a'&&ss<='z'){
+ 
+ aa nested;
+nested.name="sid";
+ aa our;
+ 
 
-            }
-            else{
-                flag=false;
-            }
-        }
-        else{
-             if(ss>='A'&&ss<='Z'){
-
-            }
-            else{
-                flag=false;
-            }
-
-        }
-    }
-    if(flag){
-        cout<<"Yes"<<endl;
-    }
-    else{
-        cout<<"No"<<endl;
-    }
+ aa copy=our;
+ if(copy.my){
+   dbg("fhappper");
+ }
 }

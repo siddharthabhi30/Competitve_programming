@@ -20,15 +20,7 @@ using namespace std;
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
 
-
 int main(){
-    ll x;
-    cin>>x;
-    if(x%100==0){
-        cout<<100<<endl;
+  
 
-    }
-    else{
-        cout<<100-x%100<<endl;
-    }
 }

@@ -46,7 +46,11 @@ int main(){
        auto my=pq.top();
        pq.pop();
        ll node=my.second;
-       ll dist=my.first;
+       ll dist=abs(my.first);
+        time[node]=dist;
+         if(dist>time[node]){
+           continue;
+       }
        //dbg2(node,dist);
        for(auto pp:adj[node]){
            auto info=mp[{node,pp}];
@@ -61,8 +65,8 @@ int main(){
            }
            ll total=extra+t+dist;
            if(time[pp]>total){
-               time[pp]=total;
-               pq.push({total,pp});
+              
+               pq.push({-total,pp});
                
            }
  

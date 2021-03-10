@@ -425,3 +425,13 @@ ll qr(ll x,ll y,ll lo,ll hi,ll pos)
 
 //string to int
         tmp=stoi(big)-stoi(small);
+
+
+        //take whole line as a input and also until end of the input
+         std::string line;
+while (std::getline(std::cin, line))
+{
+    dbg(line);
+    std::cout << line << std::endl;
+}
+combine above with if and infinite loop and get the result

@@ -19,25 +19,50 @@ using namespace std;
 #define scan(char_array) scanf("%[^\n]s",&char_array)
 #define IOS ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
-
-
 int main(){
-    int n,k;
-    cin>>n>>k;
-    int tmp;
-    tmp=n;
-    fo(i,k){
-        string our=to_string(tmp);
-        sort(all(our));
-        string small=our;
-        reverse(all(our));
-        string big=our;
-        //dbg2(big,small);
-        tmp=stoi(big)-stoi(small);
+   ll t;
+   cin>>t;
+   
+   while(t--){
+       ll ans=0;
+       ll n;
+       cin>>n;
+       ll s[n];
+       fo(i,n){
+           cin>>s[i];
 
-        
+       }
+       ll spawn[n];
+       fo(i,n) spawn[i]=0;
 
-    }
-
-    cout<<tmp<<endl;
+       ll cnt=0;
+       
+       fo(i,n){
+          
+           ll val=s[i];
+            ll threads=spawn[i];
+            ll hop=val;
+            while(hop>1&&threads){
+               if(i+hop<n) spawn[i+hop]++;
+                hop--;
+                threads--;
+            }
+            if(threads>0){
+                if(i+1<n){
+                    spawn[i+1]=threads;
+                }
+            }
+            if(hop!=1){
+                ans=ans+hop-1;
+                while(hop>1){
+                    if(i+hop<n){
+                        spawn[i+hop]++;
+                    }
+                    hop--;
+                }
+            }
+            
+       }
+       cout<<ans<<endl;
+   }
 }
